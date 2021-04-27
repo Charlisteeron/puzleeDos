@@ -67,12 +67,22 @@ void mainPuzzlesReunidos() {
 				cout << "Escriba nombre del fichero en que se encuentra: ";
 				cin >> archivo;
 
-				cout << "Introduzca el modo del puzzle: ";
+				cin.ignore();
+
+				/*cout << "Introduzca el modo del puzzle: ";
 				do {
 					cin >> modo;
-				} while (modo > 2 || modo < 1);
+				} while (modo > 2 || modo < 1);*/
 
-				cin.ignore();
+				if (archivo.substr(archivo.length() - 7, 7) == "_1D.txt") {
+					modo = 1;
+					
+				}
+				else {
+					modo = 2;
+				}
+
+				
 
 
 				tPunteroPuzzle aux;
@@ -85,7 +95,7 @@ void mainPuzzlesReunidos() {
 
 				if (cargar(*aux)) {
 
-					if (!insertarOrdenado(puzzles[modo - 1], aux)) {
+					if (insertarOrdenado(puzzles[modo - 1], aux)) {
 						cout << "\n\nEse puzzle ya exite\n\n";
 					}
 

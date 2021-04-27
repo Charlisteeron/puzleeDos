@@ -118,6 +118,8 @@ bool insertarOrdenado(tListaPuzzles& l, tPunteroPuzzle p) { // *tPuzzle -> tPunt
 			l.puzzles[i] = l.puzzles[i - 1];
 		}
 
+		cout << "hola" << endl;
+
 		l.puzzles[indice] = p;
 
 	}
