@@ -30,10 +30,10 @@
     <ClCompile Include="UtilidadesSYS.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="listaPuzzles.cpp">
+    <ClCompile Include="juegoPM.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="juegoPM.cpp">
+    <ClCompile Include="listaPuzzles_opcional.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>
@@ -50,13 +50,13 @@
     <ClInclude Include="UtilidadesSYS.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="listaPuzzles.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
     <ClInclude Include="checkML.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="juegoPM.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="listaPuzzles_opcional.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>

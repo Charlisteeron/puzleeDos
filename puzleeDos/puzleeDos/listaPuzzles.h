@@ -13,7 +13,7 @@ const int MODOS = 2;
 
 const string FICHERO = "datosPuzzles.txt";
 
-typedef tPuzzle *tPunteroPuzzle;
+typedef tPuzzle* tPunteroPuzzle;
 
 struct tListaPuzzles {
 	tPunteroPuzzle puzzles[MAX_PUZZLES];

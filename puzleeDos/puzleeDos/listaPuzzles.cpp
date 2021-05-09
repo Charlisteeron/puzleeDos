@@ -77,6 +77,8 @@ void guardar(const tPuzzlesReunidos& listas) {
 				archivo << listas[i].puzzles[j]->fichero << endl;
 
 				delete listas[i].puzzles[j];
+
+				// Guarda en el archivo y borra los elementos del heap
 			}
 		}
 		archivo.close();
@@ -118,21 +120,17 @@ bool insertarOrdenado(tListaPuzzles& l, tPunteroPuzzle p) { // *tPuzzle -> tPunt
 			l.puzzles[i] = l.puzzles[i - 1];
 		}
 
-		cout << "hola" << endl;
-
 		l.puzzles[indice] = p;
-
 	}
 
 	return existe;
 }
 
 bool buscar(const tListaPuzzles& lista, tPunteroPuzzle puzzle, int& pos) { // *tPuzzle -> tPunteroPuzzle
-	//Te quiero <3 YO MAS
-
 	bool existe = false;
 	int inicio = 0, final = lista.numPuzzles - 1, mitad;
 
+	// Busqueda binaria
 	while ((inicio <= final) && !existe) {
 		mitad = (inicio + final) / 2;
 
@@ -158,12 +156,14 @@ bool buscar(const tListaPuzzles& lista, tPunteroPuzzle puzzle, int& pos) { // *t
 }
 
 void ordenarMayorAMenor(tListaPuzzles& lista) {
+	tPunteroPuzzle aux = NULL;
+
 	for (int i = 0; i < lista.numPuzzles - 1; i++) {
 
 		for (int x = lista.numPuzzles - 1; x > i; x--) {
 			if (*lista.puzzles[x] > *lista.puzzles[x - 1]) {
 
-				tPunteroPuzzle aux = lista.puzzles[x];
+				aux = lista.puzzles[x];
 				lista.puzzles[x] = lista.puzzles[x - 1];
 				lista.puzzles[x - 1] = aux;
 			}
@@ -172,12 +172,14 @@ void ordenarMayorAMenor(tListaPuzzles& lista) {
 }
 
 void ordenarMenorAMayor(tListaPuzzles& lista) {
+	tPunteroPuzzle aux = NULL;
+	
 	for (int i = 0; i < lista.numPuzzles - 1; i++) {
 
 		for (int x = lista.numPuzzles - 1; x > i; x--) {
 			if (*lista.puzzles[x] < *lista.puzzles[x - 1]) {
 				
-				tPunteroPuzzle aux = lista.puzzles[x];
+				aux = lista.puzzles[x];
 				lista.puzzles[x] = lista.puzzles[x - 1];
 				lista.puzzles[x - 1] = aux;
 			}

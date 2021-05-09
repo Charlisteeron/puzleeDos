@@ -1,8 +1,9 @@
+// Authors: Carlos Barona y Diego Flores
+
 #pragma once
 
-#include "listaPuzzles.h"
-
-const int numOpc = 0;
+//#include "listaPuzzles.h"
+#include "listaPuzzles_opcional.h"
 
 // Funcion principal del juego
 void mainPuzzlesReunidos();

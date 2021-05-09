@@ -1,22 +1,25 @@
+// Authors: Carlos Barona y Diego Flores
+
 #include "juegoPM.h"
 
+// Muestra los puzzles de una lista y su modo
 void mostrarPuzzles(tListaPuzzles& lista, int modo);
 
 void mainPuzzlesReunidos() {
 	tPuzzlesReunidos puzzles;
 	bool jugamos = true;
-	int opcion = 0, indicePuzzle = 0, modo = 0;
+	int numOpc = 0, indicePuzzle = 0, modo = 0;
 	string nombre, archivo;
 
-
+	// Inicializamos los puzzles
 	inicializar(puzzles);
 
 	if (cargar(puzzles)) {
 
 		while (jugamos) {
-			opcion = menu();
+			numOpc = menu();
 
-			switch (opcion) {
+			switch (numOpc) {
 
 			case 1:
 				do {
@@ -40,7 +43,7 @@ void mainPuzzlesReunidos() {
 			case 2:
 				do {
 					if (indicePuzzle == -1) {
-						ordenarMenorAMayor(puzzles[1]);
+						ordenarMayorAMenor(puzzles[1]);
 					}
 					else if (indicePuzzle == -2) {
 						ordenarMenorAMayor(puzzles[1]);
@@ -69,11 +72,7 @@ void mainPuzzlesReunidos() {
 
 				cin.ignore();
 
-				/*cout << "Introduzca el modo del puzzle: ";
-				do {
-					cin >> modo;
-				} while (modo > 2 || modo < 1);*/
-
+				// Comprueba si el nombre del fichero es para el modo 1D o 2D
 				if (archivo.substr(archivo.length() - 7, 7) == "_1D.txt") {
 					modo = 1;
 					
@@ -82,9 +81,7 @@ void mainPuzzlesReunidos() {
 					modo = 2;
 				}
 
-				
-
-
+				// Creamos un puntero auxiliar y lo inicializamos en el heap
 				tPunteroPuzzle aux;
 				aux = new tPuzzle;
 
@@ -92,7 +89,7 @@ void mainPuzzlesReunidos() {
 				aux->fichero = archivo;
 				aux->tipo = modo - 1;
 
-
+				// Si lo puede cargar, comprueba si ya existe y muestra la lista y si no borra el puzzle del heap
 				if (cargar(*aux)) {
 
 					if (insertarOrdenado(puzzles[modo - 1], aux)) {
@@ -116,7 +113,13 @@ void mainPuzzlesReunidos() {
 				break;
 			
 			case 0:
+
+				// Al salir guardamos en el fichero y dejamos de jugar
 				guardar(puzzles);
+
+				delete [] puzzles[0].puzzles;
+				delete [] puzzles[1].puzzles;
+
 				jugamos = false;
 				break;
 			}

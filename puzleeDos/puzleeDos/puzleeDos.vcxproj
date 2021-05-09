@@ -141,7 +141,7 @@
   <ItemGroup>
     <ClCompile Include="coordenada.cpp" />
     <ClCompile Include="juegoPM.cpp" />
-    <ClCompile Include="listaPuzzles.cpp" />
+    <ClCompile Include="listaPuzzles_opcional.cpp" />
     <ClCompile Include="matriz.cpp" />
     <ClCompile Include="puzzle.cpp" />
     <ClCompile Include="Source.cpp" />
@@ -151,7 +151,7 @@
     <ClInclude Include="checkML.h" />
     <ClInclude Include="coordenada.h" />
     <ClInclude Include="juegoPM.h" />
-    <ClInclude Include="listaPuzzles.h" />
+    <ClInclude Include="listaPuzzles_opcional.h" />
     <ClInclude Include="matriz.h" />
     <ClInclude Include="puzzle.h" />
     <ClInclude Include="UtilidadesSYS.h" />
