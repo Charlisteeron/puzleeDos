@@ -13,7 +13,6 @@ using namespace std;
 
 typedef unsigned char uchar;
 
-typedef uchar tVector[MAX_DIM];
 typedef uchar tMatriz[MAX_DIM][MAX_DIM];
 
 struct tMatrizChar {

@@ -33,6 +33,8 @@ bool operator == (const tMatrizChar& mat1, const tMatrizChar& mat2) {
 	}
 
 	while (fila < mat1.numF && sonIguales) {
+		columna = 0;
+
 		while (columna < mat1.numC && sonIguales) {
 			if (mat1.elementos[fila][columna] != mat2.elementos[fila][columna]) {
 				sonIguales = false;
@@ -42,7 +44,6 @@ bool operator == (const tMatrizChar& mat1, const tMatrizChar& mat2) {
 		}
 
 		fila++;
-		columna = 0;
 	}
 
 	return sonIguales;
@@ -82,9 +83,7 @@ bool swap(tMatrizChar& mat, tCoor pos1, tCoor pos2) {
 		sePuede = false;
 	}
 	else {
-		uchar aux = 'a';
-
-		aux = mat.elementos[pos1.F][pos1.C];
+		uchar aux = mat.elementos[pos1.F][pos1.C];
 		mat.elementos[pos1.F][pos1.C] = mat.elementos[pos2.F][pos2.C];
 		mat.elementos[pos2.F][pos2.C] = aux;
 	}
@@ -247,10 +246,8 @@ bool voltearID(tMatrizChar& mat) {
 	}
 
 	else {
-		for (int fila = 0; fila < mat.numF; fila++) {
-			for (int col = fila; col < mat.numC; col++) {
-				swap(mat, { fila, col }, { col, fila });
-			}
+		for (int i = 0; i < mat.numF; i++) {
+			swapD(mat, i);
 		}
 	}
 
@@ -258,17 +255,10 @@ bool voltearID(tMatrizChar& mat) {
 }
 
 bool vecinosValidos(tMatrizChar& mat, tCoor pos1, tCoor pos2) {
-	bool val = true;
-	if (pos1.F == 0 || pos1.F == mat.numF - 1 || pos1.C == 0 || pos1.C == mat.numC - 1 || pos2.F == 0 || pos2.F == mat.numF - 1 || pos2.C == 0 || pos2.C == mat.numC - 1) {
-		val = false;
-	}
-	else if (abs(pos1.F - pos2.F) < 3 && abs(pos1.C - pos2.C) < 3) {
-		val = false;
-	}
-
-	return val;
+	return !(pos1.F == 0 || pos1.F == mat.numF - 1 || pos1.C == 0 || pos1.C == mat.numC - 1 || pos2.F == 0 || pos2.F == mat.numF - 1 || pos2.C == 0 || pos2.C == mat.numC - 1) 
+		|| !(abs(pos1.F - pos2.F) < 3 && abs(pos1.C - pos2.C) < 3);
 }
 
 bool coordenadaValidaEnMatriz(const tMatrizChar& m, tCoor c) {
-	return coordenadaValida(c) && c.F < m.numF && c.C < m.numC;
+	return c.F >= 0 && c.C >= 0 && c.F < m.numF && c.C < m.numC;
 }

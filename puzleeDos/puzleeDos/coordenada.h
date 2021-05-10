@@ -21,8 +21,5 @@ bool operator == (tCoor c1, tCoor c2);
 // Comprueba si 2 coordenadas son distintas
 bool operator != (tCoor c1, tCoor c2);
 
-// Comprueba si una coordenada esta dentro del rango permitido
-bool coordenadaValida(tCoor c);
-
 // Devuelve la suma de dos coordenadas
 tCoor operator + (tCoor c1, tCoor c2);

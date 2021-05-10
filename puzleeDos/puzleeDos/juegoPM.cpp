@@ -18,48 +18,49 @@ void mainPuzzlesReunidos() {
 
 		while (jugamos) {
 			numOpc = menu();
+			numOpc--;
 
 			switch (numOpc) {
 
-			case 1:
+			case 0:
 				do {
 					if (indicePuzzle == -1) {
-						ordenarMayorAMenor(puzzles[0]);
+						ordenarMayorAMenor(puzzles[numOpc]);
 					}
 					else if (indicePuzzle == -2) {
-						ordenarMenorAMayor(puzzles[0]);
+						ordenarMenorAMayor(puzzles[numOpc]);
 					}
 
-					indicePuzzle = elegirPuzzle(puzzles[0]);
+					indicePuzzle = elegirPuzzle(puzzles[numOpc]);
 
-				} while (indicePuzzle > puzzles[0].numPuzzles || indicePuzzle < 0);
+				} while (indicePuzzle > puzzles[numOpc].numPuzzles || indicePuzzle < 0);
 
 				if (indicePuzzle != 0) {
-					mainPuzzle(*puzzles[0].puzzles[indicePuzzle - 1]);
+					mainPuzzle(*puzzles[numOpc].puzzles[indicePuzzle - 1]);
 				}
 
 				break;
 			
-			case 2:
+			case 1:
 				do {
 					if (indicePuzzle == -1) {
-						ordenarMayorAMenor(puzzles[1]);
+						ordenarMayorAMenor(puzzles[numOpc]);
 					}
 					else if (indicePuzzle == -2) {
-						ordenarMenorAMayor(puzzles[1]);
+						ordenarMenorAMayor(puzzles[numOpc]);
 					}
 
-					indicePuzzle = elegirPuzzle(puzzles[1]);
+					indicePuzzle = elegirPuzzle(puzzles[numOpc]);
 
-				} while (indicePuzzle > puzzles[1].numPuzzles || indicePuzzle < 0);
+				} while (indicePuzzle > puzzles[numOpc].numPuzzles || indicePuzzle < 0);
 
 				if (indicePuzzle != 0) {
-					mainPuzzle(*puzzles[1].puzzles[indicePuzzle - 1]);
+					mainPuzzle(*puzzles[numOpc].puzzles[indicePuzzle - 1]);
 				}
 
 				break;
 
-			case 3:
+			case 2:
 			
 				mostrarPuzzles(puzzles[0], 0);
 				mostrarPuzzles(puzzles[1], 1);
@@ -112,7 +113,7 @@ void mainPuzzlesReunidos() {
 
 				break;
 			
-			case 0:
+			case -1:
 
 				// Al salir guardamos en el fichero y dejamos de jugar
 				guardar(puzzles);

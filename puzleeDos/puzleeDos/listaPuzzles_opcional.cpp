@@ -29,7 +29,6 @@ bool cargar(tPuzzlesReunidos& jr) {
 		for (int i = 0; i < MODOS; i++) {
 			archivo >> numP;
 			archivo.ignore();
-			//jr[i].numPuzzles = numP;
 
 			for (int x = 0; x < numP; x++) {
 
@@ -72,6 +71,7 @@ bool cargar(tPuzzlesReunidos& jr) {
 }
 
 void aumentarMemoria(tListaPuzzles& p) {
+	/*Aumentamos el maximo actual, creamos uno auxiliar con el nuevo tamaño, copiamos las direcciones antiguas y rehacemos el array con el nuevo tamaño, volvemos a copiar y borramos el auxiliar*/
 	p.maxActual++;
 	
 	int maximoActual = p.maxActual;
