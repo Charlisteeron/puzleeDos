@@ -3,7 +3,7 @@
 #include "puzzle.h"
 
 void mostrarHelp(); // Hace un cout de todos los comandos disponnibles
-int acciones(string comando, string accion, int modo); // Devuelve un entero en funcion del comando introducido y del modo en el que este el jugador
+int acciones(string comando, int modo); // Devuelve un entero en funcion del comando introducido y del modo en el que este el jugador
 
 void mainPuzzle(tPuzzle& jpm) {
 	bool haGanado = jugar(jpm);
@@ -100,22 +100,18 @@ bool accion(tPuzzle& jpm) {
 
 	// Pide la accion por pantalla
 	cout << "Introduzca una accion: (HP para ayuda) ";
-
-	getline(cin, accion);
-
-	// Saca el comando
-	comando = accion.substr(0, accion.find(espacio));
+	cin >> accion;
 
 	// acciones() devuelve el numero del case en funcion del comando y del modo
-	int n = acciones(comando, accion, jpm.tipo);
+	int n = acciones(accion, jpm.tipo);
 
 	// 2 switchs, 1 para cada modo, dentro de cada uno de ellos se lee los demas numeros auxiliares
 	if (jpm.tipo == 0) {
 		switch (n) {
 
 		case 1:
-			aux1 = stoi(accion.substr(3, accion.find(espacio)));
-			aux2 = stoi(accion.substr(5, accion.find(espacio)));
+			cin >> aux1 >> aux2;
+			cin.ignore();
 
 			if (!swapF(jpm.imagenJugador, aux1, aux2)) {
 				accionPermitida = false;
@@ -123,8 +119,8 @@ bool accion(tPuzzle& jpm) {
 			break;
 
 		case 2:
-			aux1 = stoi(accion.substr(3, accion.find(espacio)));
-			aux2 = stoi(accion.substr(5, accion.find(espacio)));
+			cin >> aux1 >> aux2;
+			cin.ignore();
 
 			if (!swapC(jpm.imagenJugador, aux1, aux2)) {
 				accionPermitida = false;
@@ -132,7 +128,8 @@ bool accion(tPuzzle& jpm) {
 			break;
 
 		case 3:
-			aux1 = stoi(accion.substr(3, accion.find(espacio)));
+			cin >> aux1;
+			cin.ignore();
 
 			if (!swapD(jpm.imagenJugador, aux1)) {
 				accionPermitida = false;
@@ -140,7 +137,8 @@ bool accion(tPuzzle& jpm) {
 			break;
 
 		case 4:
-			aux1 = stoi(accion.substr(3, accion.find(espacio)));
+			cin >> aux1;
+			cin.ignore();
 
 			if (!voltearF(jpm.imagenJugador, aux1)) {
 				accionPermitida = false;
@@ -148,7 +146,8 @@ bool accion(tPuzzle& jpm) {
 			break;
 
 		case 5:
-			aux1 = stoi(accion.substr(3, accion.find(espacio)));
+			cin >> aux1;
+			cin.ignore();
 
 			if (!voltearC(jpm.imagenJugador, aux1)) {
 				accionPermitida = false;
@@ -156,10 +155,11 @@ bool accion(tPuzzle& jpm) {
 			break;
 
 		case 6:
-			aux1 = stoi(accion.substr(3, accion.find(espacio)));
+			cin >> aux1;
+			cin.ignore();
 
 			if (!voltearD(jpm.imagenJugador, aux1)) {
-
+				accionPermitida = false;
 			}
 			break;
 
@@ -190,10 +190,8 @@ bool accion(tPuzzle& jpm) {
 			break;
 
 		case 4:
-			aux1 = stoi(accion.substr(3, accion.find(espacio)));
-			aux2 = stoi(accion.substr(5, accion.find(espacio)));
-			aux3 = stoi(accion.substr(7, accion.find(espacio)));
-			aux4 = stoi(accion.substr(9, accion.find(espacio)));
+			cin >> aux1 >> aux2 >> aux3 >> aux4;
+			cin.ignore();
 
 			if (!swapAdy(jpm.imagenJugador, { aux1, aux2 }, { aux3, aux4 })) {
 				accionPermitida = false;
@@ -265,36 +263,36 @@ void mostrarHelp() {
 	cout << "\n\n";
 }
 
-int acciones(string comando, string accion, int modo){
+int acciones(string comando, int modo) {
 	int ind = -1;
 
 	// Los .length() se usan para comprobar que la cadena no viene solo con el comando sin indicar los demas valores
 
 	if (modo == 0) {
-		if (comando == "SF" && accion.length() >= 6) {
+		if (comando == "SF") {
 			ind = 1;
 		}
-		else if (comando == "SC" && accion.length() >= 6) {
+		else if (comando == "SC") {
 			ind = 2;
 		}
-		else if (comando == "SD" && accion.length() >= 4) {
+		else if (comando == "SD") {
 			ind = 3;
 		}
-		else if (comando == "VF" && accion.length() >= 4) {
+		else if (comando == "VF") {
 			ind = 4;
 		}
-		else if (comando == "VC" && accion.length() >= 4) {
+		else if (comando == "VC") {
 			ind = 5;
 		}
-		else if (comando == "VD" && accion.length() >= 4) {
+		else if (comando == "VD") {
 			ind = 6;
 		}
 		else if (comando == "HP") {
 			ind = 7;
 		}
 	}
-		
-	else if (modo == 1){
+
+	else if (modo == 1) {
 		if (comando == "VV") {
 			ind = 1;
 		}
@@ -304,7 +302,7 @@ int acciones(string comando, string accion, int modo){
 		else if (comando == "RD") {
 			ind = 3;
 		}
-		else if (comando == "SA" && accion.length() >= 10) {
+		else if (comando == "SA") {
 			ind = 4;
 		}
 		else if (comando == "VD") {
