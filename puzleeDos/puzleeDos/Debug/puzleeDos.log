@@ -1,2 +1,9 @@
-﻿  puzzle.cpp
+﻿  Source.cpp
+  UtilidadesSYS.cpp
+  coordenada.cpp
+  juegoPM.cpp
+  listaPuzzles_opcional.cpp
+  matriz.cpp
+  puzzle.cpp
+  Generando código...
   puzleeDos.vcxproj -> D:\puzleeDos\puzleeDos\Debug\puzleeDos.exe

@@ -44,3 +44,6 @@ void ordenarMayorAMenor(tListaPuzzles& lista);
 
 // Ordena una lista de menor a mayor
 void ordenarMenorAMayor(tListaPuzzles& lista);
+
+// Muestra los puzzles de una lista y su modo
+void mostrarPuzzles(tListaPuzzles& lista, int modo);

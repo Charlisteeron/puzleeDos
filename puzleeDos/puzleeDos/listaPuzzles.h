@@ -25,13 +25,13 @@ typedef tListaPuzzles tPuzzlesReunidos[MODOS];
 //inicializa las dos listas de puzzles
 void inicializar(tPuzzlesReunidos & jr);
 
-//carga los datos contenidos en el fichero datosPuzzles.txt. Los datos se encuentran ordenados en el fichero en el mismo orden en que deben estar en la lista, en orden creciente del número de intentos máximo para realizar el puzzle y a igualdad de intentos por orden alfabético del nombre del puzzle.
+//carga los datos contenidos en el fichero datosPuzzles.txt. Los datos se encuentran ordenados en el fichero en el mismo orden en que deben estar en la lista, en orden creciente del nï¿½mero de intentos mï¿½ximo para realizar el puzzle y a igualdad de intentos por orden alfabï¿½tico del nombre del puzzle.
 bool cargar(tPuzzlesReunidos & jr);
 
-// guarda en el fichero datosPuzzles.txt la lista de puzzles 1D y 2D con el mismo formato del fichero de entrada, y ordenados según están en las listas.
+// guarda en el fichero datosPuzzles.txt la lista de puzzles 1D y 2D con el mismo formato del fichero de entrada, y ordenados segï¿½n estï¿½n en las listas.
 void guardar(const tPuzzlesReunidos & listas);
 
-//muestra la lista de puzzles y permite al usuario elegir uno de ellos. Debe dar la opción de mostrar la lista de mayor a menor número de movimientos o a la inversa.
+//muestra la lista de puzzles y permite al usuario elegir uno de ellos. Debe dar la opciï¿½n de mostrar la lista de mayor a menor nï¿½mero de movimientos o a la inversa.
 int elegirPuzzle(tListaPuzzles & lp);
 
 //Inserta ordenado en la lista de puzzles un nuevo puzzle
@@ -42,3 +42,6 @@ void ordenarMayorAMenor(tListaPuzzles& lista);
 
 // Ordena una lista de menor a mayor
 void ordenarMenorAMayor(tListaPuzzles& lista);
+
+// Muestra los puzzles de una lista y su modo
+void mostrarPuzzles(tListaPuzzles& lista, int modo);

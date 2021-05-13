@@ -2,9 +2,6 @@
 
 #include "juegoPM.h"
 
-// Muestra los puzzles de una lista y su modo
-void mostrarPuzzles(tListaPuzzles& lista, int modo);
-
 void mainPuzzlesReunidos() {
 	tPuzzlesReunidos puzzles;
 	bool jugamos = true;
@@ -104,11 +101,11 @@ void mainPuzzlesReunidos() {
 						mostrarPuzzles(puzzles[1], 1);
 					}
 
-					cout << "Fichero añadido correctamente =)" << endl;
+					cout << "Fichero aÃ±adido correctamente =)" << endl;
 				}
 				else {
 					delete aux;
-					cout << "No se pudo añadir el archivo =(" << endl;
+					cout << "No se pudo aÃ±adir el archivo =(" << endl;
 				}
 
 				break;
@@ -137,11 +134,11 @@ int menu() {
 	cout << "\n\n";
 	cout << "1 <-> Resolver un puzzle 1D" << endl;
 	cout << "2 <-> Resolver un puzzle 2D" << endl;
-	cout << "3 <-> Añadir un puzzle al catálogo" << endl;
+	cout << "3 <-> AÃ±adir un puzzle al catÃ¡logo" << endl;
 	cout << "0 <-> Salir" << endl;
 
 	do {
-		cout << "Elige una opción: ";
+		cout << "Elige una opciÃ³n: ";
 		cin >> opcion;
 	} while (opcion > 3 || opcion < 0);
 	cin.ignore();
@@ -149,17 +146,4 @@ int menu() {
 	cout << "\n\n";
 
 	return opcion;
-}
-
-void mostrarPuzzles(tListaPuzzles& lista, int modo) {
-	if (modo == 0) {
-		cout << "Juegos 1D" << endl;
-	}
-	else if (modo == 1) {
-		cout << endl << "Juegos 2D" << endl;
-	}
-
-	for (int i = 0; i < lista.numPuzzles; i++) {
-		cout << i + 1 << " <-> " << lista.puzzles[i]->nombre << " con un máximo de " << lista.puzzles[i]->maxIntentos << " intentos." << endl;
-	}
 }

@@ -301,3 +301,16 @@ void ordenarMenorAMayor(tListaPuzzles& lista, int inicio, int final) {
 void ordenarMenorAMayor(tListaPuzzles& lista) {
 	ordenarMenorAMayor(lista, 0, lista.numPuzzles - 1);
 }
+
+void mostrarPuzzles(tListaPuzzles& lista, int modo) {
+	if (modo == 0) {
+		cout << "Juegos 1D" << endl;
+	}
+	else if (modo == 1) {
+		cout << endl << "Juegos 2D" << endl;
+	}
+
+	for (int i = 0; i < lista.numPuzzles; i++) {
+		cout << i + 1 << " <-> " << lista.puzzles[i]->nombre << " con un máximo de " << lista.puzzles[i]->maxIntentos << " intentos." << endl;
+	}
+}

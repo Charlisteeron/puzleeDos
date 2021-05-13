@@ -93,7 +93,7 @@ int elegirPuzzle(tListaPuzzles& lp) {
 	int opcion = 0;
 
 	for (int i = 0; i < lp.numPuzzles; i++) {
-		cout << i + 1 << " <-> " << lp.puzzles[i]->nombre << " con un máximo de " << lp.puzzles[i]->maxIntentos << " intentos." << endl;
+		cout << i + 1 << " <-> " << lp.puzzles[i]->nombre << " con un mï¿½ximo de " << lp.puzzles[i]->maxIntentos << " intentos." << endl;
 	}
 	cout << "0 <-> Salir" << endl;
 	cout << "-1 <-> Ordenar la lista de mayor a menor" << endl;
@@ -184,5 +184,18 @@ void ordenarMenorAMayor(tListaPuzzles& lista) {
 				lista.puzzles[x - 1] = aux;
 			}
 		}
+	}
+}
+
+void mostrarPuzzles(tListaPuzzles& lista, int modo) {
+	if (modo == 0) {
+		cout << "Juegos 1D" << endl;
+	}
+	else if (modo == 1) {
+		cout << endl << "Juegos 2D" << endl;
+	}
+
+	for (int i = 0; i < lista.numPuzzles; i++) {
+		cout << i + 1 << " <-> " << lista.puzzles[i]->nombre << " con un mÃ¡ximo de " << lista.puzzles[i]->maxIntentos << " intentos." << endl;
 	}
 }
