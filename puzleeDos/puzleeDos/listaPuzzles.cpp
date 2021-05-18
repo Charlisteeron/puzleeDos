@@ -199,3 +199,7 @@ void mostrarPuzzles(tListaPuzzles& lista, int modo) {
 		cout << i + 1 << " <-> " << lista.puzzles[i]->nombre << " con un máximo de " << lista.puzzles[i]->maxIntentos << " intentos." << endl;
 	}
 }
+
+void jugarPuzzle(tListaPuzzles& lista, int puzzle) {
+	mainPuzzle(*lista.puzzles[puzzle]);
+}

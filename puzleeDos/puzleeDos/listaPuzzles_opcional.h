@@ -47,3 +47,6 @@ void ordenarMenorAMayor(tListaPuzzles& lista);
 
 // Muestra los puzzles de una lista y su modo
 void mostrarPuzzles(tListaPuzzles& lista, int modo);
+
+// Llama a mainPuzzle()
+void jugarPuzzle(tListaPuzzles& lista, int puzzle);

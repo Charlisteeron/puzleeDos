@@ -18,45 +18,6 @@ void mainPuzzlesReunidos() {
 			numOpc--;
 
 			switch (numOpc) {
-
-			case 0:
-				do {
-					if (indicePuzzle == -1) {
-						ordenarMayorAMenor(puzzles[numOpc]);
-					}
-					else if (indicePuzzle == -2) {
-						ordenarMenorAMayor(puzzles[numOpc]);
-					}
-
-					indicePuzzle = elegirPuzzle(puzzles[numOpc]);
-
-				} while (indicePuzzle > puzzles[numOpc].numPuzzles || indicePuzzle < 0);
-
-				if (indicePuzzle != 0) {
-					mainPuzzle(*puzzles[numOpc].puzzles[indicePuzzle - 1]);
-				}
-
-				break;
-			
-			case 1:
-				do {
-					if (indicePuzzle == -1) {
-						ordenarMayorAMenor(puzzles[numOpc]);
-					}
-					else if (indicePuzzle == -2) {
-						ordenarMenorAMayor(puzzles[numOpc]);
-					}
-
-					indicePuzzle = elegirPuzzle(puzzles[numOpc]);
-
-				} while (indicePuzzle > puzzles[numOpc].numPuzzles || indicePuzzle < 0);
-
-				if (indicePuzzle != 0) {
-					mainPuzzle(*puzzles[numOpc].puzzles[indicePuzzle - 1]);
-				}
-
-				break;
-
 			case 2:
 			
 				mostrarPuzzles(puzzles[0], 0);
@@ -120,6 +81,29 @@ void mainPuzzlesReunidos() {
 
 				jugamos = false;
 				break;
+
+			default:
+				do {
+					if (indicePuzzle == -1) {
+						ordenarMayorAMenor(puzzles[numOpc]);
+					}
+					else if (indicePuzzle == -2) {
+						ordenarMenorAMayor(puzzles[numOpc]);
+					}
+
+					indicePuzzle = elegirPuzzle(puzzles[numOpc]);
+
+				} while (indicePuzzle > puzzles[numOpc].numPuzzles || indicePuzzle < 0);
+
+				if (indicePuzzle != 0) {
+					jugarPuzzle(puzzles[numOpc], indicePuzzle - 1);
+				}
+
+				// Volvemos a dejar la lista ordenada
+				ordenarMenorAMayor(puzzles[numOpc]);
+
+				break;
+
 			}
 		}
 	}

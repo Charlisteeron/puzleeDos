@@ -143,7 +143,7 @@ int elegirPuzzle(tListaPuzzles& lp) {
 
 bool insertarOrdenado(tListaPuzzles& l, tPunteroPuzzle p) {
 	int indice = 0;
-	bool existe = buscar(l, p, indice, 0, l.numPuzzles);
+	bool existe = buscar(l, p, indice, 0, l.numPuzzles - 1);
 
 	if (!existe) {
 		aumentarMemoria(l);
@@ -313,4 +313,8 @@ void mostrarPuzzles(tListaPuzzles& lista, int modo) {
 	for (int i = 0; i < lista.numPuzzles; i++) {
 		cout << i + 1 << " <-> " << lista.puzzles[i]->nombre << " con un máximo de " << lista.puzzles[i]->maxIntentos << " intentos." << endl;
 	}
+}
+
+void jugarPuzzle(tListaPuzzles& lista, int puzzle) {
+	mainPuzzle(*lista.puzzles[puzzle]);
 }
