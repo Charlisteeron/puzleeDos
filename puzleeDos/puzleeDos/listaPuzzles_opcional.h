@@ -10,6 +10,7 @@ using namespace std;
 
 const int MAX_PUZZLES = 3;
 const int MODOS = 2;
+const int AUMENTAR_MEMORIA_EN = 1;
 
 const string FICHERO = "datosPuzzles.txt";
 

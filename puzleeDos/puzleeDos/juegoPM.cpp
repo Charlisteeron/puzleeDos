@@ -18,7 +18,7 @@ void mainPuzzlesReunidos() {
 			numOpc--;
 
 			switch (numOpc) {
-			case 2:
+			case 2: // Cargar un nuevo puzzle
 			
 				mostrarPuzzles(puzzles[0], 0);
 				mostrarPuzzles(puzzles[1], 1);
@@ -71,7 +71,7 @@ void mainPuzzlesReunidos() {
 
 				break;
 			
-			case -1:
+			case -1: // Salir
 
 				// Al salir guardamos en el fichero y dejamos de jugar
 				guardar(puzzles);
@@ -82,7 +82,7 @@ void mainPuzzlesReunidos() {
 				jugamos = false;
 				break;
 
-			default:
+			default: // Jugamos en funcion del modo escogido
 				do {
 					if (indicePuzzle == -1) {
 						ordenarMayorAMenor(puzzles[numOpc]);

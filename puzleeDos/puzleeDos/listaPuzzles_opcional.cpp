@@ -2,8 +2,8 @@
 
 #include "listaPuzzles_opcional.h"
 
-void aumentarMemoria(tListaPuzzles& p);
-bool buscar(const tListaPuzzles& lista, tPunteroPuzzle puzzle, int& pos, int inicio, int final);
+void aumentarMemoria(tListaPuzzles& p); // Aumenta memoria del array dinamico de una lista de puzzles
+bool buscar(const tListaPuzzles& lista, tPunteroPuzzle puzzle, int& pos, int inicio, int final); // Busqueda binaria recursiva
 
 void inicializar(tPuzzlesReunidos& jr) {
 	for (int i = 0; i < MAX_PUZZLES; i++) {
@@ -71,26 +71,22 @@ bool cargar(tPuzzlesReunidos& jr) {
 }
 
 void aumentarMemoria(tListaPuzzles& p) {
-	/*Aumentamos el maximo actual, creamos uno auxiliar con el nuevo tamaño, copiamos las direcciones antiguas y rehacemos el array con el nuevo tamaño, volvemos a copiar y borramos el auxiliar*/
-	p.maxActual++;
-	
+	// Creamos uno auxiliar con el tamaño actual, aumentamos el maximo,copiamos las direcciones antiguas y rehacemos el array con el nuevo tamaño, volvemos a copiar y borramos el auxiliar
 	int maximoActual = p.maxActual;
-	int numP = p.numPuzzles;
+	
+	p.maxActual += AUMENTAR_MEMORIA_EN;
 
 	tPunteroAPunteroPuzzle puzzlesAux = new tPunteroPuzzle[maximoActual];
 
-
-	for (int i = 0; i < maximoActual - 1; i++) {
+	for (int i = 0; i < maximoActual; i++) {
 		puzzlesAux[i] = p.puzzles[i];
 	}
 
-	puzzlesAux[maximoActual - 1] = NULL;
-
 	delete[] p.puzzles;
 
-	p.puzzles = new tPunteroPuzzle[maximoActual];
+	p.puzzles = new tPunteroPuzzle[p.maxActual];
 
-	for (int i = 0; i < p.maxActual - 1; i++) {
+	for (int i = 0; i < maximoActual; i++) {
 		p.puzzles[i] = puzzlesAux[i];
 	}
 

@@ -5,7 +5,7 @@
 #include "juegoPM.h"
 
 int main() {
-	// Llamamos a las funciones para mirar la memoria no liberada y la pagina de codigos activa
+	// Llamamos a las funciones para comprobar la memoria no liberada y la pagina de codigos activa
 	_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
 	chcp1252();
 
